@@ -1,7 +1,6 @@
 <template>
-  <div @click="clickHandle">
-
-    <div class="buttonBox" @click="bindViewTap">
+  <div>
+    <div class="buttonBox">
       <div class="leftBox">
         <div class="imgScreen"><img src="/static/tabs/filter.png"></div>
         <!-- <div class="imgScreen" id="imgScreen"></div> -->
@@ -20,50 +19,19 @@
         <img src="/static/tabs/search.png">
       </div>
     </div>
-
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
-import card from '@/components/card'
-
 export default {
   data () {
     return {
-      motto: 'Hello miniprograme',
-      userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
     }
   },
-
-  components: {
-    card
-  },
-
   methods: {
-    bindViewTap () {
-      const url = '../logs/main'
-      if (mpvuePlatform === 'wx') {
-        mpvue.switchTab({ url })
-      } else {
-        mpvue.navigateTo({ url })
-      }
-    },
-    clickHandle (ev) {
-      console.log('clickHandle:', ev)
-      // throw {message: 'custom test'}
-    }
   },
 
   created () {
-    // let app = getApp()
   }
 }
 </script>
@@ -83,16 +51,11 @@ export default {
   border: green solid 1px;
 }
 
-.leftBox img{
-  width:25px;
-  height:25px;
-  /* display: inline-block; 
-  vertical-align: middle; */
-}
-
 .imgScreen{
   float:left;
   margin-right: 5px;
+  width:25px;
+  height:25px;
 }
 
 .listBox{
@@ -119,6 +82,5 @@ button{
   width: 25px;
   height: 25px;
 }
-
 
 </style>

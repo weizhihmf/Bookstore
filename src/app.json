@@ -1,14 +1,14 @@
 {
   "pages": [
     "pages/index/main",
-    "pages/logs/main",
-    "pages/counter/main",
+    "pages/study/main",
+    "pages/list/main",
     "pages/mine/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "悦阅英语",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -24,7 +24,7 @@
       "selectedIconPath": "static/tabs/home-active.png"
     }, {
       "text": "学习",
-      "pagePath": "pages/logs/main",
+      "pagePath": "pages/study/main",
       "iconPath": "static/tabs/learn.png",
       "selectedIconPath": "static/tabs/learn-active.png"
     }, {
@@ -41,7 +41,7 @@
       "activeIcon": "static/tabs/home-active.png"
     }, {
       "name": "学习",
-      "pagePath": "pages/logs/main",
+      "pagePath": "pages/study/main",
       "icon": "static/tabs/orders.png",
       "activeIcon": "static/tabs/orders-active.png"
     },{
