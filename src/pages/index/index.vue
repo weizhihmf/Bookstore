@@ -1,24 +1,31 @@
 <template>
   <div>
-    <div class="buttonBox">
+    <!-- <div class="buttonBox">
       <div class="leftBox">
-        <div class="imgScreen"><img src="/static/tabs/filter.png"></div>
-        <!-- <div class="imgScreen" id="imgScreen"></div> -->
-          <ul class="listBox">
-          <li><button>推荐</button></li>
-          <li><button>六级</button></li>
-          <li><button>精选</button></li>
-          <li><button>热门</button></li>
-          <li><button>电影</button></li>
-          <li><button>美剧</button></li>
-          <li><button>动画</button></li>
-          <li><button>演讲</button></li>
-        </ul>
-      </div>
+        <div><img class="imgScreen" src="/static/tabs/filter.png"></div> -->
+          <i-tabs :current="current_scroll" scroll @change="handleChangeScroll">
+            <i-tab key="tab1" title="推荐"></i-tab>
+            <i-tab key="tab2" title="六级"></i-tab>
+            <i-tab key="tab3" title="精选"></i-tab>
+            <i-tab key="tab4" title="热门"></i-tab>
+            <i-tab key="tab5" title="电影"></i-tab>
+            <i-tab key="tab6" title="美剧"></i-tab>
+            <i-tab key="tab7" title="动画"></i-tab>
+            <i-tab key="tab8" title="演讲"></i-tab>
+          </i-tabs>
+          <i-grid v-for="grid in grids" :key="grid">
+            <i-grid-item>
+              <i-grid-icon>
+                <image :src="grid.image" />
+              </i-grid-icon>
+              <i-grid-label>{{grid.remark}}</i-grid-label>
+            </i-grid-item>
+          </i-grid>
+      <!-- </div>
       <div class="rightBox">
-        <img src="/static/tabs/search.png">
+        <img class="rightImg" src="/static/tabs/search.png">
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -26,13 +33,27 @@
 export default {
   data () {
     return {
+      current: "tab1",
+      current_scroll: "tab1",
+      grids:[
+        {remark:"介绍1", image:"/static/images/user.png"},
+        {remark:"介绍2", image:"/static/images/user.png"},
+        {remark:"介绍3", image:"/static/images/user.png"},
+        {remark:"介绍4", image:"/static/images/user.png"},
+        {remark:"介绍5", image:"/static/images/user.png"},
+        {remark:"介绍6", image:"/static/images/user.png"}
+      ]
     }
   },
   methods: {
-  },
+    handleChangeScroll(e){
+      console.log(e)
+        this.current_scroll = e.mp.detail.key
+    },
 
-  created () {
-  }
+    created () {
+   }
+}
 }
 </script>
 
@@ -41,46 +62,34 @@ export default {
   position:relative;
   width: 380px;
   height:30px;
-  background-color:red;
 }
 
 .leftBox{
+  float: left;
   width:88%;
   height:30px;
   line-height:200px;
-  border: green solid 1px;
 }
 
 .imgScreen{
   float:left;
-  margin-right: 5px;
-  width:25px;
-  height:25px;
-}
-
-.listBox{
-  margin-left: 10px;
-}
-
-li{
-  float: left;
-}
-
-button{
-  font-size: 12px;
-  background-color: Transparent; 
-  border-style: none;    
-  outline: none;     
-}
-
-.rightBox{
-  width:12%;
-  height:30px;
-}
-
- img{
   width: 25px;
   height: 25px;
+}
+
+
+.rightBox{
+  float: left;
+  width:10%;
+  height:30px;
+  line-height:200px;
+}
+
+.rightImg{
+  float: right;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
 }
 
 </style>

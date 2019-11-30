@@ -8,7 +8,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "悦阅英语",
+    "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -20,35 +20,35 @@
     "list": [{
       "text": "首页",
       "pagePath": "pages/index/main",
-      "iconPath": "static/tabs/home.png",
-      "selectedIconPath": "static/tabs/home-active.png"
+      "iconPath": "static/images/_home.png",
+      "selectedIconPath": "static/images/home.png"
     }, {
       "text": "学习",
       "pagePath": "pages/study/main",
-      "iconPath": "static/tabs/learn.png",
-      "selectedIconPath": "static/tabs/learn-active.png"
+      "iconPath": "static/images/_study.png",
+      "selectedIconPath": "static/images/study.png"
     }, {
       "text": "我的",
       "pagePath": "pages/mine/main",
-      "iconPath": "static/tabs/mine.png",
-      "selectedIconPath": "static/tabs/mine-active.png"
+      "iconPath": "static/images/_mine.png",
+      "selectedIconPath": "static/images/mine.png"
     }],
 
     "items": [{
       "name": "首页",
       "pagePath": "pages/index/main",
-      "icon": "static/tabs/home.png",
-      "activeIcon": "static/tabs/home-active.png"
+      "icon": "static/images/_home.png",
+      "activeIcon": "static/images/home.png.png"
     }, {
       "name": "学习",
       "pagePath": "pages/study/main",
-      "icon": "static/tabs/orders.png",
-      "activeIcon": "static/tabs/orders-active.png"
+      "icon": "static/images/_study.png",
+      "activeIcon": "static/images/study.png"
     },{
       "text": "我的",
       "pagePath": "pages/mine/main",
-      "iconPath": "static/tabs/orders.png",
-      "selectedIconPath": "static/tabs/orders-active.png"
+      "iconPath": "static/images/_mine.png",
+      "selectedIconPath": "static/images/mine.png"
     }],
     "position": "bottom"
   }
