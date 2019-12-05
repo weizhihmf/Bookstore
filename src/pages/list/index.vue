@@ -10,6 +10,10 @@ export default {
 
     }
   },
+  onLoad (option){
+  // this.list = require('@/data/' + option.type + '.json')
+  console.log(option.type)
+  },
   methods: {
   }
 }
