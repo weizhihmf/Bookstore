@@ -9,15 +9,15 @@
     >
       <block v-for="img in imgUrls" :key="img">
         <swiper-item>
-          <image :src="img" class="imageSize" @click="goTo"/>
+          <image :src="img" class="imageSize" @tap="goTo"/>
         </swiper-item>
       </block>
     </swiper>
      <i-grid i-class="no-border">
-    <i-grid-item @click="goList(grid.url)" v-for="grid in grids" :key="grid" i-class="no-border">
+    <i-grid-item @click="goUrl(grid.title)" v-for="grid in grids" :key="grid" i-class="no-border">
         <i-grid-icon>
             <image :src="grid.image" />
-        </i-grid-icon>
+        </i-grid-icon>  
         <i-grid-label>{{grid.title}}</i-grid-label>
     </i-grid-item>
   </i-grid>
@@ -44,8 +44,8 @@ export default {
       ],
       grids: [
         {title:"笔记",image:"/static/images/note.png","url":'../note/main'},
-        {title:"收藏",image:"/static/images/save.png","url":'../list/main?title=2'},
-        {title:"单词本",image:"/static/images/word.png","url":'../list/main?title=3'}
+        {title:"收藏",image:"/static/images/save.png","url":'../save/main'},
+        {title:"单词本",image:"/static/images/word.png","url":'../word/main'}
       ],
     }
   },
@@ -53,13 +53,26 @@ export default {
      handleChangeScroll(type){
         this.current = type.mp.detail.key
     },
-     goList (url) {
-      // mpvue.navigateTo({ url })
-      wx.navigateTo({
-        url:('/pages/note/main')
-      })
+     goUrl (title) {
+       console.log(title)
+       if(title==="收藏"){
+         mpvue.navigateTo({ url:'../save/main' })
+       }
+        if(title==="笔记"){
+         mpvue.navigateTo({ url:'../note/main' })
+       }
+       if(title==="单词本"){
+         mpvue.navigateTo({ url:'../word/main' })
+       }
+      
     },
+    goTo(){
+      console.log(111)
+      mpvue.navigateTo({
+        url:('/pages/suggestions/main')
+    })
   }
+}
 }
 </script>
 

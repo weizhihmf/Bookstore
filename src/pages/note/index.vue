@@ -1,6 +1,8 @@
 <template>
     <div>
-        <view>笔记</view>
+        <i-panel title="笔记">
+            <i-input :value=" value" placeholder="赶快写下你的笔记吧"/>
+        </i-panel>
     </div>
 </template>
 
@@ -8,12 +10,12 @@
 export default {
     data() {
         return {
-            
+            value:""
         }
     },
-    onLoad (type){
-        console.log(type)
-    }
+    // onLoad (title){
+    //     console.log(title)
+    // }
 }
 </script>
 

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "欢迎来到你的收藏",
+  "usingComponents": {
+    "i-panel": "../../../static/dist/panel/index"
+}
+}
