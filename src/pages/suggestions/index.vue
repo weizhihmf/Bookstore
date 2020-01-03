@@ -49,7 +49,7 @@ beforeMount(){
      
   },
   re () {
-   wx.switchTab({
+   mpvue.switchTab({
   url: '/pages/study/main'
 })
       

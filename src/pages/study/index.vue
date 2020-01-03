@@ -9,7 +9,7 @@
     >
       <block v-for="img in imgUrls" :key="img">
         <swiper-item>
-          <image :src="img" class="imageSize" @tap="goTo"/>
+          <image :src="img" class="imageSize" @click="goTo"/>
         </swiper-item>
       </block>
     </swiper>
@@ -38,14 +38,14 @@ export default {
       duration: 1000,
       current: "0",
        imgUrls: [
-        '/static/images/listen.png',
-        '/static/images/speak.png',
-        '/static/images/read.png'
+        'cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/images/listen.png',
+        'cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/images/speak.png',
+        'cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/images/read.png'
       ],
       grids: [
-        {title:"笔记",image:"/static/images/note.png","url":'../note/main'},
-        {title:"收藏",image:"/static/images/save.png","url":'../save/main'},
-        {title:"单词本",image:"/static/images/word.png","url":'../word/main'}
+        {title:"笔记",image:"/static/images/note.png"},
+        {title:"收藏",image:"/static/images/save.png"},
+        {title:"单词本",image:"/static/images/word.png"}
       ],
     }
   },
@@ -54,22 +54,19 @@ export default {
         this.current = type.mp.detail.key
     },
      goUrl (title) {
-       console.log(title)
        if(title==="收藏"){
-         mpvue.navigateTo({ url:'../save/main' })
+         mpvue.navigateTo({ url:'../note/main' })
        }
         if(title==="笔记"){
          mpvue.navigateTo({ url:'../note/main' })
        }
        if(title==="单词本"){
          mpvue.navigateTo({ url:'../word/main' })
-       }
-      
+       }   
     },
     goTo(){
-      console.log(111)
       mpvue.navigateTo({
-        url:('/pages/suggestions/main')
+        url:'/pages/suggestions/main'
     })
   }
 }

@@ -3,7 +3,11 @@
     "pages/index/main",
     "pages/study/main",
     "pages/list/main",
-    "pages/mine/main"
+    "pages/mine/main",
+    "pages/note/main",
+    "pages/save/main",
+    "pages/word/main",
+    "pages/suggestions/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

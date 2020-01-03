@@ -13,9 +13,6 @@ export default {
             value:""
         }
     },
-    // onLoad (title){
-    //     console.log(title)
-    // }
 }
 </script>
 

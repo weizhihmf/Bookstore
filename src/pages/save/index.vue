@@ -1,7 +1,7 @@
 <template>
     <div>
         <i-panel title="收藏">
-            <view>你还没有任何收藏哦，快去添加收藏吧</view>
+            <view class="txt">你还没有任何收藏哦  快去添加你的收藏吧</view>
         </i-panel>
     </div>
 </template>
@@ -13,13 +13,15 @@ export default {
             
         }
     },
-    onLoad (title){
-        console.log("111111")
-        // console.log(title)
-    }
 }
 </script>
 
 <style scoped>
-
+.txt {
+  font-size: 20px;
+  margin-top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>

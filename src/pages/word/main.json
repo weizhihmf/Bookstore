@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "我的",
+  "navigationBarTitleText": "欢迎来到你的单词本",
   "usingComponents": {
     "i-panel": "../../../static/dist/panel/index",
     "i-input": "../../../static/dist/input/index",
