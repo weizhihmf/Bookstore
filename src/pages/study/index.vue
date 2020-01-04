@@ -24,7 +24,30 @@
   <i-tabs :current="current" scroll @change="handleChangeScroll">
       <i-tab key="0" title="学习记录"></i-tab>
       <i-tab key="1" title="离线课程"></i-tab>
-    </i-tabs>
+  </i-tabs>
+  <swiper @change="changeView" :current="current" style="height:1150px;">
+      <swiper-item v-for="(item,index1) in vedioUrl" :key="index1">
+       <i-grid v-for="value in item" :key="value">
+         <view>
+             <video :src="value.url" style="height:130px;"></video>
+          <i-panel :title="value.remark">
+      </i-panel> 
+         </view> 
+    </i-grid> 
+    </swiper-item>
+  </swiper>
+  <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="content">内容不错</view>
+    <view slot="footer">尾部内容</view>
+</i-card>
+<i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="content">内容不错</view>
+    <view slot="footer">尾部内容</view>
+</i-card>
+<i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="content">内容不错</view>
+    <view slot="footer">尾部内容</view>
+</i-card>
   </div>
 </template>
 

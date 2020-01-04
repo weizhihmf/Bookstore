@@ -15,7 +15,7 @@
         <i-input :value="reason" @change="changeReason($event)" title="您的建议：" placeholder="请输入文字" maxlength="100" />
     </i-panel>
     <i-button @click="handleClick" type="info" size="default">提交 </i-button>
-    <view class="tips">您的宝贵意见将是我们前进的动力！！！</view>
+    <i-notice-bar icon="systemprompt" loop>您的宝贵意见将是我们前进的动力！！！</i-notice-bar>
     </div>
 </template>
 
@@ -37,6 +37,15 @@ export default {
     },
     handleClick () {
       if (this.starIndex && this.reason) {
+        let event = {
+          starIndex: this.starIndex,
+          reason: this.reason
+        }
+        wx.cloud.callFunction({name: 'advices',data:event }).then(
+          res => {
+            console.log(res)
+          }
+        )
         wx.showToast({
           title: '感谢您的建议',
           icon: 'success',
@@ -76,11 +85,5 @@ export default {
     border-radius: 50%;
     border: 2px solid #fff;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2)
-}
-
-.tips {
-  padding: 20pt;
-  font-size: 10pt;
-  color:rgb(19, 179, 201);
 }
 </style>
