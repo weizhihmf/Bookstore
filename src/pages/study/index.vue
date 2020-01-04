@@ -42,23 +42,28 @@ export default {
         'cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/images/speak.png',
         'cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/images/read.png'
       ],
-      grids: [
-        {title:"笔记",image:"/static/images/note.png"},
-        {title:"收藏",image:"/static/images/save.png"},
-        {title:"单词本",image:"/static/images/word.png"}
-      ],
+      grids: [],
     }
+  },
+  created() {
+    const db = wx.cloud.database({env:'hubuhmf-nzru0'})
+    db.collection('grids').get().then(
+      res => {
+        console.log(res.data)
+        this.grids = res.data
+      }
+    )
   },
   methods: {
      handleChangeScroll(type){
         this.current = type.mp.detail.key
     },
      goUrl (title) {
-       if(title==="收藏"){
+       if(title==="笔记"){
          mpvue.navigateTo({ url:'../note/main' })
        }
-        if(title==="笔记"){
-         mpvue.navigateTo({ url:'../note/main' })
+        if(title==="收藏"){
+         mpvue.navigateTo({ url:'../save/main' })
        }
        if(title==="单词本"){
          mpvue.navigateTo({ url:'../word/main' })
@@ -66,7 +71,7 @@ export default {
     },
     goTo(){
       mpvue.navigateTo({
-        url:'/pages/suggestions/main'
+        url:'/pages/note/main'
     })
   }
 }
