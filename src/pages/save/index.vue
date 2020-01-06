@@ -1,7 +1,9 @@
 <template>
     <div>
         <i-panel title="收藏">
-            <view class="txt">你还没有任何收藏哦  快去添加你的收藏吧</view>
+            <i-card title="听歌学英语" thumb="/static/images/ima.png" @click="goList">
+                <view slot="content">内容不错,适合学习</view>
+            </i-card>
         </i-panel>
     </div>
 </template>
@@ -11,6 +13,11 @@ export default {
     data() {
         return {
             
+        }
+    },
+    methods: {
+        goList(){
+            mpvue.navigateTo({ url:'../list/main' })
         }
     },
 }

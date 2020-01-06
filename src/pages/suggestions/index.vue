@@ -36,10 +36,6 @@ export default {
   components: {
     card
   },
-beforeMount(){
-      // this.handleGetUserInfo(),
-      // console.log("jianglai")
-    },
   methods: {
     
   change () {

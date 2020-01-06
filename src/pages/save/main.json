@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "欢迎来到你的收藏",
   "usingComponents": {
-    "i-panel": "../../../static/dist/panel/index"
+    "i-panel": "../../../static/dist/panel/index",
+    "i-card": "../../../static/dist/card/index"
 }
 }

@@ -25,15 +25,15 @@
       <i-tab key="0" title="学习记录"></i-tab>
       <i-tab key="1" title="离线课程"></i-tab>
   </i-tabs>
-  <swiper @change="changeView" :current="current" style="height:450px;">
-      <swiper-item v-for="(item,index1) in vedioList" :key="index1">
+  <swiper @change="changeView" :current="current" style="height:300px;">
+      <swiper-item v-for="item in vedioList" :key="item">
        <!-- <i-grid v-for="value in item" :key="value"> -->
-         <!-- <view v-for="value in item" :key="value"> -->
+         <!-- <view> -->
              <!-- <video :src="value.url" style="height:130px;"></video>
           <i-panel :title="value.remark">
       </i-panel>  -->
-          <i-card v-for="value in item" :key="value" title="value.title" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-          <view slot="value.remark">内容不错</view>
+          <i-card :title="item.title" extra="听歌学英语" :thumb="item.url" @click="toList">
+          <view slot="footer">{{item.remark}}</view>
           </i-card>
          <!-- </view>  -->
     <!-- </i-grid>  -->
@@ -58,12 +58,8 @@ export default {
       ],
       grids: [],
       vedioList:[
-      [
-        {title:"视频一",remark:"介绍1",url:"	cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/1.mp4"},
-      ]
-      [  
-        {title:"视频2",remark:"介绍2",url:"	cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/10.mp4"}
-      ]
+        {title:"视频1",remark:"介绍1",url:"	/static/images/ima.png"}, 
+        {title:"视频2",remark:"介绍2",url:"	/static/images/ima.png"}
       ]
     }
   },
@@ -96,8 +92,11 @@ export default {
     },
     goTo(){
       mpvue.navigateTo({
-        url:'/pages/note/main'
+        url:'/pages/suggestions/main'
     })
+  },
+  toList(){
+     mpvue.navigateTo({ url:'../list/main' })
   }
 }
 }

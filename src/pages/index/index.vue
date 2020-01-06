@@ -14,7 +14,7 @@
       <swiper-item v-for="(item,index1) in vedioUrl" :key="index1">
        <i-grid v-for="value in item" :key="value">
          <view>
-             <video :src="value.url" style="height:130px;"></video>
+             <video :src="value.url" style="height:130px;" :controls=controls poster object-fit=fill auto-pause-if-navigate @click="goToList"></video>
           <i-panel :title="value.remark">
       </i-panel> 
          </view> 
@@ -28,36 +28,37 @@
 export default {
   data () {
     return {
+      controls:false,
       current: "0",
       vedioUrl: [
         [
           {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/1.mp4",remark:"音调可以"},
           {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/2.mp4",remark:"看影视学英语"},
           {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/3.mp4",remark:"看科技，励志"},
-          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/4.mp4",remark:"听小姐姐的声音学英语"},
-          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/5.mp4",remark:"介绍5"},
-          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/6.mp4",remark:"介绍6"}
+          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/4.mp4",remark:"听小姐姐的歌曲学英语"},
+          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/5.mp4",remark:"适合学习"},
+          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/6.mp4",remark:"适合学习"}
         ],
         [
-          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/7.mp4",remark:"介绍1"}
+          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/7.mp4",remark:"介绍六级"}
         ],
         [
-          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/8.mp4",remark:"介绍1"}
+          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/8.mp4",remark:"精选篇"}
         ],
         [
-          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/9.mp4",remark:"介绍1"}
+          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/9.mp4",remark:"热门篇"}
         ],
         [
-          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/10.mp4",remark:"介绍1"}
+          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/10.mp4",remark:"电影篇"}
         ],
         [
-          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/11.mp4",remark:"介绍1"}
+          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/11.mp4",remark:"美剧篇"}
         ],
         [
-          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/12.mp4",remark:"介绍1"}
+          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/12.mp4",remark:"动画篇"}
         ],
         [
-          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/13.mp4",remark:"介绍1"}
+          {url:"cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/13.mp4",remark:"演讲篇"}
         ]
       ]
     }
@@ -65,17 +66,19 @@ export default {
   methods: {
     handleChangeScroll(type){
         this.current = type.mp.detail.key
-      // let url='../list/main?type=' + type.mp.detail.key
-      // mpvue.navigateTo({ url })
     },
 
     changeView(e){
       this.current = e.mp.detail.current
     },
-
-    created () {
+    goToList(event){
+      console.log(event.mp)
+      let url='../list/main?event=' + event.mp.target.dataset.eventid
+      mpvue.navigateTo({ url })
+    }
+},
+ created () {
    }
-}
 }
 </script>
 
