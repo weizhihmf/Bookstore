@@ -74,7 +74,7 @@ export default {
     goToList(event){
       console.log(event.mp)
       let url='../list/main?event=' + event.mp.target.dataset.eventid
-      mpvue.navigateTo({ url })
+      mpvue.navigateTo({ url:'../list/main?event=' + event.mp.target.dataset.eventid +'&strUrl=' + encodeURIComponent(JSON.stringify(url))})
     }
 },
  created () {

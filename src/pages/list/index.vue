@@ -1,7 +1,7 @@
 <template>
   <div>
     <view>
-      <video src="cloud://hubuhmf-nzru0.6875-hubuhmf-nzru0-1300842120/vedioUrl/4.mp4" 
+      <video :src="src "
       style="margin:0 20px;height:130px;" poster object-fit:fill vslide-gesture-in-fullscreen
       enable-progress-gesture show-center-play-btn show-play-btn show-fullscreen-btn></video>
     </view>
@@ -12,12 +12,14 @@
 export default {
   data(){
     return {
-
+      src:''
     }
   },
   onLoad (options){
-  //   // this.list = require('@/data/' + option.title + '.json')
     console.log(options)
+    let jsonParam = JSON.parse(decodeURIComponent(options.strUrl))
+    console.log(jsonParam);
+    this.src = jsonParam
   },
   methods: {
   }
